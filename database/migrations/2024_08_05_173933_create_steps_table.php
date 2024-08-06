@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
+            $table->string('start_place', 100);
+            $table->string('end_place', 100)->nullable();
+            $table->string('slug', 150);
+            $table->text('description')->nullable();
+            $table->string('geographic_coordinates', 100);
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
