@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('travel_id')->nullable();
             $table->string('start_place', 100);
             $table->string('end_place', 100)->nullable();
-            $table->string('slug', 150);
+            $table->string('slug', 150)->nullable();
             $table->text('description')->nullable();
-            $table->string('geographic_coordinates', 100);
+            $table->string('geographic_coordinates', 100)->nullable();
             $table->text('note')->nullable();
             $table->timestamps();
+            $table->foreign('travel_id')->references('id')->on('travels')->onDelete('cascade');
+
         });
     }
 

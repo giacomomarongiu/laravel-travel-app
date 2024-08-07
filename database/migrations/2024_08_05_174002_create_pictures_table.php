@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration
 {
     /**
@@ -13,10 +14,13 @@ return new class extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('step_id')->nullable();
             $table->string('title', 100)->nullable();
             $table->string('url');
             $table->text('description')->nullable();
             $table->timestamps();
+            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascade');
+
         });
     }
 

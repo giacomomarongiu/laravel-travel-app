@@ -6,6 +6,7 @@ use App\Models\Travel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 
 
 class TravelSeeder extends Seeder
@@ -23,6 +24,9 @@ class TravelSeeder extends Seeder
             $endDate = $faker->dateTimeBetween($startDate, '+1 month');
             $newTravel = new Travel();
             $newTravel->name = $faker->city;
+            $name =
+            $name = Str::slug($newTravel->name);
+            $newTravel->slug = $name;
             $newTravel->user_id = 1;
             $newTravel->description = $faker->paragraph;
             $newTravel->start_date = $startDate->format('Y-m-d');
