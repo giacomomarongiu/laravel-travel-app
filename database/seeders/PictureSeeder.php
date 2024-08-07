@@ -24,6 +24,8 @@ class PictureSeeder extends Seeder
             $newPicture->url = $faker->imageUrl();
             $newPicture->step_id =1;
             $newPicture->save(); 
+
+            
         }
     }
 }

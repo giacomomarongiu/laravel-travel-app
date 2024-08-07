@@ -22,6 +22,7 @@ class StepSeeder extends Seeder
             $newTravel->travel_id = 2;
             $newTravel->start_place= $faker->city();
             $newTravel->end_place= $faker->city();
+             
             
             $newTravel->save();
         }
